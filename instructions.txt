@@ -1,0 +1,24 @@
+-python -m venv myenv
+-cd myenv\Scripts\activate
+or - 
+conda create -p venv python==3.10 -y
+conda activate venv/
+
+-Generate Google API Key https://makersuite.google.com/app/apikey
+-create .env file and  write Google Gemini APIKEY here
+
+-health.py
+> pip install -r requirements.txt
+
+-Open .env file put code
+ GOOGLE_API_KEY="Paste your GOOGLE_APIKEY"
+
+> streamlit run health.py
+
+
+***Health LLM APP is uploaded on Streamlite. URL is - 
+https://healthappappgeminillm-6yhhy9nwjame5rupsg9pnd.streamlit.app/
+
+***Github link
+https://github.com/YogeshRaje/Healthapp_GoogleGeminiLLM.git
+
