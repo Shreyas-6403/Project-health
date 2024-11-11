@@ -10,10 +10,10 @@ from PIL import Image
 # Configure API key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Function to load Google Gemini Pro Vision API and get response
+# Function to load Google Gemini 1.5 Flash API and get response
 def get_gemini_response(input, image, prompt):
     try:
-        model = genai.GenerativeModel('gemini-pro-vision')
+        model = genai.GenerativeModel('gemini-1.5-flash')  # Updated model
         response = model.generate_content([input, image[0], prompt])
         return response.get("text", "No response text available")  # Adjust as needed
     except Exception as e:
