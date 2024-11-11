@@ -11,11 +11,11 @@ from PIL import Image
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Function to load Google Gemini 1.5 Flash API and get response
-def get_gemini_response(input, image, prompt):
+def get_gemini_response(input_text, image, prompt):
     try:
         model = genai.GenerativeModel('gemini-1.5-flash')  # Updated model
-        response = model.generate_content([input, image[0], prompt])
-        return response.get("text", "No response text available")  # Adjust as needed
+        response = model.generate_content([input_text, image[0], prompt])
+        return response.text  # Access text attribute directly
     except Exception as e:
         st.error(f"Error calling API: {e}")
         return None
@@ -62,7 +62,7 @@ You are an expert nutritionist. You need to analyze the food items in the image 
 if submit and uploaded_file is not None and user_input:
     try:
         image_data = input_image_setup(uploaded_file)
-        response_text = get_gemini_response(input_prompt, image_data, user_input)
+        response_text = get_gemini_response(user_input, image_data, input_prompt)
         if response_text:
             st.subheader("The Response is")
             st.write(response_text)
